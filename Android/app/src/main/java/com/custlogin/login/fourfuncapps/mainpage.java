@@ -4,7 +4,8 @@ package com.custlogin.login.fourfuncapps;
         import android.os.Bundle;
         import android.app.Activity;
         import android.content.Intent;
-        import android.view.Menu;
+        import android.telephony.SmsManager;
+        //import android.view.Menu;
         import android.view.View;
         import android.view.View.OnClickListener;
         import android.widget.Button;
@@ -12,9 +13,9 @@ package com.custlogin.login.fourfuncapps;
         import android.widget.Toast;
 
 public class mainpage extends Activity {
+    //private static final int MY_PERMISSION_REQUEST_SEND_SMS = 1;
     Button sms, call, btnurl, logout;
     EditText phno, message, urldataval;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,16 +30,33 @@ public class mainpage extends Activity {
         String messageval = message.getText().toString();
         urldataval = (EditText) findViewById(R.id.urldata);
         sms.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View arg0) {
-
+                String mobnumber = phno.getText().toString();
+                String messagetxt=message.getText().toString();
+                try {
+                    SmsManager smsManager = SmsManager.getDefault();
+                    smsManager.sendTextMessage(mobnumber, null, messagetxt, null, null);
+                    Toast.makeText(getApplicationContext(), "SMS sent.", Toast.LENGTH_LONG).show();
+                }
+                catch (Exception e)
+                {
+                    Toast.makeText(getApplicationContext(), "SMS failed, please try again.", Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+                }
+                //SmsManager smsManager = SmsManager.getDefault();
+                //smsManager.sendTextMessage(destinationAddress, scAddress, text, sentIntent, deliveryIntent)
+                //smsManager.sendTextMessage(mobnumber, null, messagetxt, null, null);
+                //Toast.makeText(mainpage.this,"sms send", Toast.LENGTH_SHORT).show();
             }
         });
         call.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
+                String mobnumber = phno.getText().toString();
+                Intent ans = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+ mobnumber));
+                startActivity( ans );
 
             }
         });
@@ -57,6 +75,8 @@ public class mainpage extends Activity {
 
             @Override
             public void onClick(View arg0) {
+                Toast.makeText(mainpage.this, "Byee!", Toast.LENGTH_SHORT).show();
+                finish();
 
             }
         });
