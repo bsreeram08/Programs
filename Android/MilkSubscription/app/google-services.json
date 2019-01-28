@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "143967012373",
+    "firebase_url": "https://milk-subscription.firebaseio.com",
+    "project_id": "milk-subscription",
+    "storage_bucket": "milk-subscription.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143967012373:android:133733f17aa8abc3",
+        "android_client_info": {
+          "package_name": "com.mycompany.sree.milksubscription"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "143967012373-c3qni7h36vrs930dvv7pttv23q4cir2g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.sree.milksubscription",
+            "certificate_hash": "a3916b598c5de148834e823085e0446e90b017fa"
+          }
+        },
+        {
+          "client_id": "143967012373-albkeq51f55cv4ds0pbl4iu60tuh098a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArBKRZcj5pD0F7bIYVa8vSUhEOsHL9dsU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "143967012373-albkeq51f55cv4ds0pbl4iu60tuh098a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
