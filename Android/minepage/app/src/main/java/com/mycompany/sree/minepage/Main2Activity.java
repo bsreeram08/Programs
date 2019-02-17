@@ -1,6 +1,7 @@
 package com.mycompany.sree.minepage;
 
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -54,10 +55,16 @@ public class Main2Activity extends AppCompatActivity {
         }
         return 0;
     }
-    int dptopx(int dp)
+    int[] dptopx(int dp)
     {
-        DisplayMetrics displayMetrics = getApplicationContext().getResources().getDisplayMetrics();
-        return Math.round(dp*(displayMetrics.xdpi/DisplayMetrics.DENSITY_DEFAULT));
+        Point size = new Point();
+        getWindowManager().getDefaultDisplay().getSize(size);
+        int screenWidth = size.x;
+        int screenHeight = size.y;
+        int[] data = {0,0};
+        data[0]=screenWidth/(val+1);
+        data[1]=screenHeight/(val*2);
+        return data;
     }
     public void findneighbours(int r,int c)
     {
@@ -137,21 +144,19 @@ public class Main2Activity extends AppCompatActivity {
                 Button button=new Button(this);
                 button.setTag(""+0);
                 button.setBackgroundResource(R.drawable.button);
+                int x[] = dptopx(40);
                 if(val==8) {
-                    int x = dptopx(40);
-                    gridLayout.addView(button, x, x);
+                    gridLayout.addView(button, x[0]-5, x[1]);
                     flag=random=10;
                 }
                 else if(val==6){
-                    int x = dptopx(55);
-                    gridLayout.addView(button, x, x);
+                    gridLayout.addView(button, x[0], x[1]);
                     flag=random=6;
                 }
                 else if(val==4)
                 {
-                    int x = dptopx(85);
+                    gridLayout.addView(button, x[0]+8, x[1]);
                     flag=random=2;
-                    gridLayout.addView(button, x, x);
                 }
             }
         }

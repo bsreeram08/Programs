@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="190dp"/>
+
+    <EditText
+        android:id="@+id/textdata"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:hint="Enter Text"
+        />
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"/>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:id="@+id/bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bold"
+                />
+            <CheckBox
+                android:id="@+id/italic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Italic"
+                />
+
+        </LinearLayout>
+        <View
+            android:layout_width="35dp"
+            android:layout_height="match_parent"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioGroup
+                android:id="@+id/radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:text="Sans"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:text="TimesNewRoman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:text="Verdana"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/red"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:text="RED"
+            android:background="#F00000"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="30dp"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/blue"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:text="Blue"
+            android:background="#0034F0"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="30dp"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/green"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:text="Green"
+            android:background="#18F000"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="40dp" />
+
+    <TextView
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ems="15"
+        android:text="The Text Here"
+        android:textAlignment="center"
+        android:textColor="#6D0B74"
+        android:textSize="20sp" />
+</LinearLayout>
