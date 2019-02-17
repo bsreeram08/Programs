@@ -7,6 +7,7 @@ struct BST
     struct BST *left;
     struct BST *right;
 };
+void insert(int,struct BST&);
 struct BST *head;
 struct BST* newnode(int data)
 {
@@ -15,26 +16,6 @@ struct BST* newnode(int data)
     node->left = NULL;
     node->right = NULL;
     return node;
-}
-struct BST* insert(int data,struct BST *temp)
-{
-    if(temp == NULL)
-    {
-        cout<<"TEMP NULL";
-        return newnode(data);
-    }
-    cout<<temp->data<<endl;
-    if(temp->data < data)
-    {
-        insert(data,temp->right);
-        cout<<"back";
-    }
-    else if(temp->data > data)
-    {
-        insert(data,temp->left);
-        cout<<"back";
-    }
-    return temp;
 }
 void inorder(struct BST *node)
 {
@@ -85,13 +66,14 @@ int main()
     for(int i=0;i<n;i++)
     {
         cin>>data;
-        if(i==0)
+        insert(data,*head);
+        if(head == NULL)
         {
-            head = insert(data,head);
+            cout<<"headnull";
         }
         else
         {
-            insert(data,head);
+            cout<<"headnotnull";
         }
         cout<<"NODE INSERTED\n";
     }
@@ -101,4 +83,31 @@ int main()
     preorder(head);
     cout<<"\nPOSTORDER:-\n";
     postorder(head);
+}
+void insert(int data,struct BST &temp)
+{
+    if(*temp == NULL)
+    {
+        cout<<"TEMP NULL";
+        *temp = newnode(data);
+        if(*temp == NULL)
+        {
+            cout<<"1";
+        }
+        else
+        {
+            cout<<"0";
+        }
+    }
+    cout<<*temp->data<<endl;
+    if(*temp->data < data)
+    {
+        insert(data,*temp->right);
+        cout<<"back";
+    }
+    else if(*temp->data > data)
+    {
+        insert(data,*temp->left);
+        cout<<"back";
+    }
 }
