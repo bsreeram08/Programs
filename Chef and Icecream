@@ -1,0 +1,52 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws IOException {
+		Scanner sc = new Scanner(System.in);
+		int iter,test_cases,size_of_queue,coin_given,coin_cnt_5,coin_cnt_10;
+		test_cases = sc.nextInt();
+		boolean res;
+		while(test_cases-- > 0){
+		    res = true;
+		    size_of_queue = sc.nextInt();
+		    coin_cnt_5=0;
+		    coin_cnt_10=0;
+		    for (iter=0;iter<size_of_queue;iter++){
+		        coin_given = sc.nextInt();
+		        if(coin_given==5){
+		            coin_cnt_5++;
+		        }
+		        else if(coin_given==10){
+		            if(coin_cnt_5>0){
+		                coin_cnt_5--;
+		            }
+		            else
+		            {
+		                res = false;
+		            }
+		        }
+		        else{
+		            if(coin_cnt_10>0){
+		                coin_cnt_10--;
+		            }
+		            else if(coin_cnt_5>2){
+		                coin_cnt_5-=2;
+		            }
+		            else{
+		                res = false;
+		            }
+		        }
+		    }
+		    if(res)
+		    System.out.println("YES");
+		    else
+		    System.out.println("NO");
+		}
+	}
+}
